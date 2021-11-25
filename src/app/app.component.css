@@ -1,0 +1,22 @@
+.main {
+    padding: 16px;
+}
+
+.heading {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.content-blue {
+    color: blue;
+    font-weight: bold;
+}
+
+.content-green {
+    color: green;
+    font-weight: bold;
+}

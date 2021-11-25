@@ -1,0 +1,42 @@
+<div class="child-content">
+    <div>
+        <div *ngIf="isValid"><br>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Please enter the input fields
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="isValid = false"></button>
+            </div>
+        </div>
+        <!--1. ******* NG-CONTENT ******* -->
+        <div class="mb-2">
+            <ng-content></ng-content>
+        </div>
+        <!-- <ng-content select="[h3Attr]"></ng-content>
+        <ng-content select="[id=h3Id]"></ng-content>
+        <ng-content select="h3"></ng-content>
+        <ng-content select=".h3Class"></ng-content> -->
+        <!--1. ************************** -->
+        <label>Heading:
+            <!--2. ******** NG-MODEL ******** -->
+            <input type="text" [(ngModel)]="headVal">
+            <!--2. *************************** -->
+            <!--3. ***** LOCAL REFERENCE ***** -->
+            <!-- <input type="text" #headRefVal> -->
+            <!--3. ************************** -->
+        </label><br><br>
+        <label>Content:
+            <!--4. ******** NG-MODEL ******** -->
+            <input type="text" [(ngModel)]="contVal">
+            <!--4. *************************** -->
+            <!--5. ***** LOCAL REFERENCE WITH VIEWCHILD ***** -->
+            <!-- <input type="text" #contRefVal> -->
+            <!--5. ****************************************** -->
+        </label><br><br>
+        <!--6. ***** INTERPOLATION TO CHECK NG-ON-CHANGE***** -->
+        <!-- <p><em>{{onChangeInput}}</em></p> -->
+        <!--6. ********************************************** -->
+        <!--7. ***** EVENT BINDING ***** -->
+        <!-- <button (click)="onClickSubmit(contRefVal)">Submit</button> -->
+        <button (click)="onClickSubmit()">Submit</button>
+        <!--7. ************************* -->
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand"><strong>{{title}}</strong></a>
+        <form class="d-flex">
+            <!-- *****1. INTERPOLATION - ASYNC PIPE ***** -->
+            <span>App Status : <strong>{{status | async}}</strong></span>
+            <!--1. ********************** -->
+        </form>
+    </nav>
+    <!--2. ***** NG-IF ***** -->
+    <!-- <div *ngIf="toggleBtn"> -->
+    <!-- <br> -->
+    <!--3. ***** NG-MODEL ***** -->
+    <!-- <label>OnChange: <input type="text" [(ngModel)]="onChangeInput"></label> -->
+    <!--3. ******************** -->
+    <!-- </div> -->
+    <!--2. ********************** -->
+    <!--4. ***** CHILD-COMPONENT ***** -->
+    <!-- ***** NG-IF ***** -->
+    <!-- ***** PROPERTY-BINDING ***** -->
+    <!-- ***** EVENT-BINDING ***** -->
+    <app-post *ngIf="toggleBtn" [onChangeInput]="onChangeInput">
+        <!--5. ***** NG_CONTENT ***** -->
+        <strong #firstPostRef>Add Post</strong>
+        <!--5. *********************** -->
+    </app-post>
+    <!--4. *************************** -->
+    <app-post-table></app-post-table>
+    <!--10. ***** EVENT BINDING ***** -->
+    <button class="btn btn-primary" (click)="onToggle()">{{buttonLabel}}</button><br><br>
+    <!--10. ************************* -->
+</div>

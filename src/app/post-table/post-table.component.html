@@ -1,0 +1,39 @@
+<div>
+    <br>
+    <table *ngIf="posts.length" class="table table-hover">
+        <tr>
+            <th>Sno:</th>
+            <th>Heading</th>
+            <th>Content</th>
+            <th>Date Created</th>
+            <th>Delete</th>
+        </tr>
+        <!--6. ***** NG-FOR ***** -->
+        <tr *ngFor="let post of posts; let i = index">
+            <td>
+                {{i+1}}.
+            </td>
+            <!--7. ***** INTERPOLATION ***** -->
+            <td>
+                <strong class="heading">{{post.heading}}</strong>
+            </td>
+            <!--7. *************************** -->
+            <!--8. ***** NG-CLASS ***** -->
+            <!-- ***** INTERPOLATION - TITLECASE PIPE ***** -->
+            <td>
+                <span [ngClass]="{'content-blue':i === 1,'content-green': i !== 1}">{{post.content | titlecase}}</span>
+            </td>
+            <!--8. *************************** -->
+            <!--9. ***** NG-STYLE ***** -->
+            <!-- ***** INTERPOLATION - DATE PIPE ***** -->
+            <td>
+                <span [ngStyle]="{color: i === 1 ? 'blue' : 'green', fontWeight: 'bold'}">{{post.newDate | date:'medium':'EST' | uppercase }}</span>
+            </td>
+            <td>
+                <i class="material-icons" style="color: red;cursor: pointer;" (click)="onDelete(i)">delete</i>
+            </td>
+            <!--9. *************************** -->
+        </tr>
+        <!--6. *************************** -->
+    </table>
+</div>
